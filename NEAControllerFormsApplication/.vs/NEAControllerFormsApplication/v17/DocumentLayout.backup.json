@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Christian Costantino\\source\\repos\\NEAControllerFormsApplication\\",
+  "WorkspaceRootPath": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|c:\\users\\christian costantino\\source\\repos\\neacontrollerformsapplication\\neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|c:\\users\\christian costantino\\source\\launchcontrol\\neacontrollerformsapplication\\neacontrollerformsapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|solutionrelative:neacontrollerformsapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|c:\\users\\christian costantino\\source\\launchcontrol\\neacontrollerformsapplication\\neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|solutionrelative:neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|c:\\users\\christian costantino\\source\\repos\\neacontrollerformsapplication\\neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BA627B2-EF7D-47B7-B721-4C1212986F37}|NEAControllerFormsApplication\\NEAControllerFormsApplication.csproj|solutionrelative:neacontrollerformsapplication\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,16 +26,33 @@
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Program.cs",
+              "RelativeDocumentMoniker": "NEAControllerFormsApplication\\Program.cs",
+              "ToolTip": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Program.cs",
+              "RelativeToolTip": "NEAControllerFormsApplication\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T18:59:19.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\repos\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs",
               "RelativeDocumentMoniker": "NEAControllerFormsApplication\\Form1.cs",
-              "ToolTip": "C:\\Users\\Christian Costantino\\source\\repos\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs*",
-              "RelativeToolTip": "NEAControllerFormsApplication\\Form1.cs*",
+              "ToolTip": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs",
+              "RelativeToolTip": "NEAControllerFormsApplication\\Form1.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAADwvxUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T14:43:35.456Z",
@@ -39,12 +60,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\repos\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs",
               "RelativeDocumentMoniker": "NEAControllerFormsApplication\\Form1.cs",
-              "ToolTip": "C:\\Users\\Christian Costantino\\source\\repos\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs [Design]*",
-              "RelativeToolTip": "NEAControllerFormsApplication\\Form1.cs [Design]*",
+              "ToolTip": "C:\\Users\\Christian Costantino\\source\\launchcontrol\\NEAControllerFormsApplication\\NEAControllerFormsApplication\\Form1.cs [Design]",
+              "RelativeToolTip": "NEAControllerFormsApplication\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T14:30:56.017Z",
               "EditorCaption": " [Design]"
