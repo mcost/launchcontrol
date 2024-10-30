@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LaunchControlSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="COSTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberTypeID" Type="int" Nullable="false" />
+          <Property Name="CostTypeID" Type="int" Nullable="false" />
+          <Property Name="CostPounds" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COSTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LaunchControlSystem.dbo.FLIGHT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FLIGHT">
+          <Key>
+            <PropertyRef Name="ClubMemberP1ID" />
+            <PropertyRef Name="TakeoffTime" />
+            <PropertyRef Name="LandingTime" />
+            <PropertyRef Name="LaunchTypeID" />
+            <PropertyRef Name="GliderID" />
+            <PropertyRef Name="PayingMemberID" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ClubMemberP1ID" Type="int" Nullable="false" />
+          <Property Name="ClubMemberP2ID" Type="int" />
+          <Property Name="TakeoffTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="LandingTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="LaunchTypeID" Type="int" Nullable="false" />
+          <Property Name="GliderID" Type="int" Nullable="false" />
+          <Property Name="PayingMemberID" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LaunchControlSystem.dbo.GLIDERS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="GLIDERS">
+          <Property Name="ID" Type="varchar" MaxLength="20" />
+          <Property Name="GliderREG" Type="varchar" MaxLength="10" />
+          <Property Name="GliderTypeID" Type="int" />
+        </EntityType>-->
+        <EntityType Name="GLIDERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GliderType" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAUNCHTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEMBERCLUB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="MemberTypeID" Type="int" Nullable="false" />
+          <Property Name="MembershipStart" Type="date" Nullable="false" />
+          <Property Name="MembershipEnd" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEMBERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LaunchControlSystemModelStoreContainer">
+          <EntitySet Name="COSTS" EntityType="Self.COSTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COSTTYPE" EntityType="Self.COSTTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GLIDERTYPE" EntityType="Self.GLIDERTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LAUNCHTYPE" EntityType="Self.LAUNCHTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEMBERCLUB" EntityType="Self.MEMBERCLUB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEMBERTYPE" EntityType="Self.MEMBERTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FLIGHT" EntityType="Self.FLIGHT" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FLIGHT].[ClubMemberP1ID] AS [ClubMemberP1ID], 
+    [FLIGHT].[ClubMemberP2ID] AS [ClubMemberP2ID], 
+    [FLIGHT].[TakeoffTime] AS [TakeoffTime], 
+    [FLIGHT].[LandingTime] AS [LandingTime], 
+    [FLIGHT].[LaunchTypeID] AS [LaunchTypeID], 
+    [FLIGHT].[GliderID] AS [GliderID], 
+    [FLIGHT].[PayingMemberID] AS [PayingMemberID], 
+    [FLIGHT].[Cost] AS [Cost]
+    FROM [dbo].[FLIGHT] AS [FLIGHT]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaunchControlSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="COST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CostTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CostPounds" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COSTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GLIDERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GliderType1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAUNCHTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEMBERCLUB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberTypeID" Type="Int32" Nullable="false" />
+          <Property Name="MembershipStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MembershipEnd" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="MEMBERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FLIGHT">
+          <Key>
+            <PropertyRef Name="ClubMemberP1ID" />
+            <PropertyRef Name="TakeoffTime" />
+            <PropertyRef Name="LandingTime" />
+            <PropertyRef Name="LaunchTypeID" />
+            <PropertyRef Name="GliderID" />
+            <PropertyRef Name="PayingMemberID" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ClubMemberP1ID" Type="Int32" Nullable="false" />
+          <Property Name="ClubMemberP2ID" Type="Int32" />
+          <Property Name="TakeoffTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="LandingTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="LaunchTypeID" Type="Int32" Nullable="false" />
+          <Property Name="GliderID" Type="Int32" Nullable="false" />
+          <Property Name="PayingMemberID" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LaunchControlSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COSTS" EntityType="Self.COST" />
+          <EntitySet Name="COSTTYPEs" EntityType="Self.COSTTYPE" />
+          <EntitySet Name="GLIDERTYPEs" EntityType="Self.GLIDERTYPE" />
+          <EntitySet Name="LAUNCHTYPEs" EntityType="Self.LAUNCHTYPE" />
+          <EntitySet Name="MEMBERCLUBs" EntityType="Self.MEMBERCLUB" />
+          <EntitySet Name="MEMBERTYPEs" EntityType="Self.MEMBERTYPE" />
+          <EntitySet Name="FLIGHTs" EntityType="Self.FLIGHT" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaunchControlSystemModelStoreContainer" CdmEntityContainer="LaunchControlSystemEntities">
+          <EntitySetMapping Name="COSTS">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.COST">
+              <MappingFragment StoreEntitySet="COSTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberTypeID" ColumnName="MemberTypeID" />
+                <ScalarProperty Name="CostTypeID" ColumnName="CostTypeID" />
+                <ScalarProperty Name="CostPounds" ColumnName="CostPounds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COSTTYPEs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.COSTTYPE">
+              <MappingFragment StoreEntitySet="COSTTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GLIDERTYPEs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.GLIDERTYPE">
+              <MappingFragment StoreEntitySet="GLIDERTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GliderType1" ColumnName="GliderType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAUNCHTYPEs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.LAUNCHTYPE">
+              <MappingFragment StoreEntitySet="LAUNCHTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEMBERCLUBs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.MEMBERCLUB">
+              <MappingFragment StoreEntitySet="MEMBERCLUB">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="MemberTypeID" ColumnName="MemberTypeID" />
+                <ScalarProperty Name="MembershipStart" ColumnName="MembershipStart" />
+                <ScalarProperty Name="MembershipEnd" ColumnName="MembershipEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEMBERTYPEs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.MEMBERTYPE">
+              <MappingFragment StoreEntitySet="MEMBERTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FLIGHTs">
+            <EntityTypeMapping TypeName="LaunchControlSystemModel.FLIGHT">
+              <MappingFragment StoreEntitySet="FLIGHT">
+                <ScalarProperty Name="ClubMemberP1ID" ColumnName="ClubMemberP1ID" />
+                <ScalarProperty Name="ClubMemberP2ID" ColumnName="ClubMemberP2ID" />
+                <ScalarProperty Name="TakeoffTime" ColumnName="TakeoffTime" />
+                <ScalarProperty Name="LandingTime" ColumnName="LandingTime" />
+                <ScalarProperty Name="LaunchTypeID" ColumnName="LaunchTypeID" />
+                <ScalarProperty Name="GliderID" ColumnName="GliderID" />
+                <ScalarProperty Name="PayingMemberID" ColumnName="PayingMemberID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

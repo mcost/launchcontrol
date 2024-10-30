@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaunchControlSystemModelStoreContainer" CdmEntityContainer="LaunchControlSystemEntities">
+    <EntitySetMapping Name="COSTS">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.COST">
+        <MappingFragment StoreEntitySet="COSTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MemberTypeID" ColumnName="MemberTypeID" />
+          <ScalarProperty Name="CostTypeID" ColumnName="CostTypeID" />
+          <ScalarProperty Name="CostPounds" ColumnName="CostPounds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COSTTYPEs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.COSTTYPE">
+        <MappingFragment StoreEntitySet="COSTTYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GLIDERTYPEs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.GLIDERTYPE">
+        <MappingFragment StoreEntitySet="GLIDERTYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GliderType1" ColumnName="GliderType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LAUNCHTYPEs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.LAUNCHTYPE">
+        <MappingFragment StoreEntitySet="LAUNCHTYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBERCLUBs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.MEMBERCLUB">
+        <MappingFragment StoreEntitySet="MEMBERCLUB">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="MemberTypeID" ColumnName="MemberTypeID" />
+          <ScalarProperty Name="MembershipStart" ColumnName="MembershipStart" />
+          <ScalarProperty Name="MembershipEnd" ColumnName="MembershipEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBERTYPEs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.MEMBERTYPE">
+        <MappingFragment StoreEntitySet="MEMBERTYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FLIGHTs">
+      <EntityTypeMapping TypeName="LaunchControlSystemModel.FLIGHT">
+        <MappingFragment StoreEntitySet="FLIGHT">
+          <ScalarProperty Name="ClubMemberP1ID" ColumnName="ClubMemberP1ID" />
+          <ScalarProperty Name="ClubMemberP2ID" ColumnName="ClubMemberP2ID" />
+          <ScalarProperty Name="TakeoffTime" ColumnName="TakeoffTime" />
+          <ScalarProperty Name="LandingTime" ColumnName="LandingTime" />
+          <ScalarProperty Name="LaunchTypeID" ColumnName="LaunchTypeID" />
+          <ScalarProperty Name="GliderID" ColumnName="GliderID" />
+          <ScalarProperty Name="PayingMemberID" ColumnName="PayingMemberID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

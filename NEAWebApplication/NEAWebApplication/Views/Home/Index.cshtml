@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "";
+}
+@{
+    bool isAuthenticated = User.Identity.IsAuthenticated;
+}
+
+<main>
+    @if (!isAuthenticated)
+    {
+        <section class="col-md-4" aria-labelledby="loginTitle">
+            <h2 id="loginTitle">Login</h2>
+            <p>If you are a member, please log in in order to write down your flight details.</p>
+            <p><a class="btn btn-outline-dark" href="https://localhost:44346/Home/Login">Login &raquo;</a></p>
+        </section>
+    }
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Please enter your launch details</h1>
+        <p class="lead">Details will be communicated to the Air Traffic Controller, and added onto the flying list.</p>
+        <p><a href="https://localhost:44346/Home/About" class="btn btn-primary btn-md">Enter details &raquo;</a></p>
+    </section>
+
+    <div class="row">
+        <p>
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Need help?</h2>
+            <p>
+                Please refer to the 'get help' button, which goes through a guide through on how to enter your details.
+            </p>
+            <p><a class="btn btn-outline-dark" href="https://localhost:44346/Home/Contact">Get help &raquo;</a></p>
+        </section>
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">London Gliding Club</h2>
+            <p>A link to the London Gliding Club's homepage.</p>
+            &nbsp;
+            <p><a class="btn btn-outline-dark" href="https://www.londonglidingclub.co.uk/">Learn more &raquo;</a></p>
+        </section>
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Suggestions</h2>
+            <p>This software is under development. If you have any suggestions, please do not hesitate to contact via the link below.</p>
+            <p><a class="btn btn-outline-dark" href="https://localhost:44346/Home/Contact">Suggest something&raquo;</a></p>
+        </section>
+</main>

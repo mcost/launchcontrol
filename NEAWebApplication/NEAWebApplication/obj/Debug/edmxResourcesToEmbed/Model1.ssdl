@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaunchControlSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="COSTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberTypeID" Type="int" Nullable="false" />
+    <Property Name="CostTypeID" Type="int" Nullable="false" />
+    <Property Name="CostPounds" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COSTTYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LaunchControlSystem.dbo.FLIGHT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FLIGHT">
+    <Key>
+      <PropertyRef Name="ClubMemberP1ID" />
+      <PropertyRef Name="TakeoffTime" />
+      <PropertyRef Name="LandingTime" />
+      <PropertyRef Name="LaunchTypeID" />
+      <PropertyRef Name="GliderID" />
+      <PropertyRef Name="PayingMemberID" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="ClubMemberP1ID" Type="int" Nullable="false" />
+    <Property Name="ClubMemberP2ID" Type="int" />
+    <Property Name="TakeoffTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="LandingTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="LaunchTypeID" Type="int" Nullable="false" />
+    <Property Name="GliderID" Type="int" Nullable="false" />
+    <Property Name="PayingMemberID" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'LaunchControlSystem.dbo.GLIDERS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="GLIDERS">
+          <Property Name="ID" Type="varchar" MaxLength="20" />
+          <Property Name="GliderREG" Type="varchar" MaxLength="10" />
+          <Property Name="GliderTypeID" Type="int" />
+        </EntityType>-->
+  <EntityType Name="GLIDERTYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GliderType" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LAUNCHTYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEMBERCLUB">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="MemberTypeID" Type="int" Nullable="false" />
+    <Property Name="MembershipStart" Type="date" Nullable="false" />
+    <Property Name="MembershipEnd" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEMBERTYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LaunchControlSystemModelStoreContainer">
+    <EntitySet Name="COSTS" EntityType="Self.COSTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COSTTYPE" EntityType="Self.COSTTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GLIDERTYPE" EntityType="Self.GLIDERTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LAUNCHTYPE" EntityType="Self.LAUNCHTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEMBERCLUB" EntityType="Self.MEMBERCLUB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEMBERTYPE" EntityType="Self.MEMBERTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FLIGHT" EntityType="Self.FLIGHT" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FLIGHT].[ClubMemberP1ID] AS [ClubMemberP1ID], 
+    [FLIGHT].[ClubMemberP2ID] AS [ClubMemberP2ID], 
+    [FLIGHT].[TakeoffTime] AS [TakeoffTime], 
+    [FLIGHT].[LandingTime] AS [LandingTime], 
+    [FLIGHT].[LaunchTypeID] AS [LaunchTypeID], 
+    [FLIGHT].[GliderID] AS [GliderID], 
+    [FLIGHT].[PayingMemberID] AS [PayingMemberID], 
+    [FLIGHT].[Cost] AS [Cost]
+    FROM [dbo].[FLIGHT] AS [FLIGHT]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

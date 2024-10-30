@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Enter Launch Details";
+    ViewBag.Write = " ";
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+    <p>This will be communicated to the Air Traffic Controller, and added onto the list.</p>
+    @model NEAWebApplication.FLIGHT
+
+    <form asp-action="SearchPilot" method="post">
+        <p>P1 (Pilot 1's) Details:</p>
+        <input asp-for="Pilot1.FirstName" placeholder="First Name" required />
+        <input asp-for="Pilot1.SurName" placeholder="Surname" required />
+        <input asp-for="Pilot1.LastName" placeholder="Membership Number" required />
+        <button type="submit" class="btn btn-outline-dark" href="">Confirm Pilot (P1) &raquo;</button>
+
+        <p>P2 (Pilot 2's) Details:</p>
+        <input asp-for="Pilot2.FirstName" placeholder="First Name" required />
+        <input asp-for="Pilot2.SurName" placeholder="Surname" required />
+        <input asp-for="Pilot2.LastName" placeholder="Membership Number" required />
+        <button type="submit" class="btn btn-outline-dark" href="">Confirm Pilot (P2) &raquo;</button>
+        <p> </p>
+
+        <p>If an instructor is onboard, please ask the instructor to fill in the following details.</p>
+        <p>Instructor's Details:</p>
+        <input asp-for="Instructor.FirstName" placeholder="First Name" />
+        <input asp-for="Instructor.SurName" placeholder="Surname" />
+        <input asp-for="Instructor.LastName" placeholder="Instructor Number" />
+        <button type="submit" class="btn btn-outline-dark" href="">Confirm Instructor &raquo;</button>
+        @if (ViewBag.Pilot1Confirmed != null)
+        {
+            <p>Pilot 1 Confirmation: @(ViewBag.Pilot1Confirmed ? "Confirmed" : "Not Found")</p>
+        }
+        @if (ViewBag.Pilot2Confirmed != null)
+        {
+            <p>Pilot 2 Confirmation: @(ViewBag.Pilot2Confirmed ? "Confirmed" : "Not Found")</p>
+        }
+        @if (ViewBag.InstructorConfirmed != null)
+        {
+            <p>Instructor Confirmation: @(ViewBag.InstructorConfirmed ? "Confirmed" : "Not Found")</p>
+        }
+@*<form asp-action="SearchPilot" method="post">
+    <p>P1 (Pilot 1's) Details:</p>
+    <input asp-for="Pilot1.FirstName" placeholder="First Name" required />
+    <span asp-validation-for="Pilot1.FirstName" class="text-danger"></span>
+
+    <input asp-for="Pilot1.SurName" placeholder="Surname" required />
+    <span asp-validation-for="Pilot1.SurName" class="text-danger"></span>
+
+    <input asp-for="Pilot1.LastName" placeholder="Membership Number" required />
+    <span asp-validation-for="Pilot1.LastName" class="text-danger"></span>
+    <button type="submit" class="btn btn-outline-dark">Confirm Pilot (P1) &raquo;</button>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var state in ViewData.ModelState)
+            {
+                foreach (var error in state.Value.Errors)
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            }
+        </div>
+    }
+    <input asp-for="Pilot1.FirstName" placeholder="First Name" required value="@Model.Pilot1.FirstName" />
+    <input asp-for="Pilot1.SurName" placeholder="Surname" required value="@Model.Pilot1.SurName" />
+    <input asp-for="Pilot1.LastName" placeholder="Membership Number" required value="@Model.Pilot1.ID" />
+
+    <p>P2 (Pilot 2's) Details:</p>
+    <input asp-for="Pilot2.FirstName" placeholder="First Name" required />
+    <span asp-validation-for="Pilot2.FirstName" class="text-danger"></span>
+
+    <input asp-for="Pilot2.SurName" placeholder="Surname" required />
+    <span asp-validation-for="Pilot2.SurName" class="text-danger"></span>
+
+    <input asp-for="Pilot2.LastName" placeholder="Membership Number" required />
+    <span asp-validation-for="Pilot2.LastName" class="text-danger"></span>
+    <button type="submit" class="btn btn-outline-dark">Confirm Pilot (P2) &raquo;</button>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var state in ViewData.ModelState)
+            {
+                foreach (var error in state.Value.Errors)
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            }
+        </div>
+    }
+    <input asp-for="Pilot2.FirstName" placeholder="First Name" required value="@Model.Pilot2.FirstName" />
+    <input asp-for="Pilot2.SurName" placeholder="Surname" required value="@Model.Pilot2.SurName" />
+    <input asp-for="Pilot2.LastName" placeholder="Membership Number" required value="@Model.Pilot2.ID" />
+
+    <p>If an instructor is onboard, please ask the instructor to fill in the following details.</p>
+    <p>Instructor's Details:</p>
+    <input asp-for="Instructor.FirstName" placeholder="First Name" />
+    <span asp-validation-for="Instructor.FirstName" class="text-danger"></span>
+
+    <input asp-for="Instructor.SurName" placeholder="Surname" />
+    <span asp-validation-for="Instructor.SurName" class="text-danger"></span>
+
+    <input asp-for="Instructor.LastName" placeholder="Instructor Number" />
+    <span asp-validation-for="Instructor.LastName" class="text-danger"></span>
+    <button type="submit" class="btn btn-outline-dark">Confirm Instructor &raquo;</button>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var state in ViewData.ModelState)
+            {
+                foreach (var error in state.Value.Errors)
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            }
+        </div>
+    }
+    <input asp-for="Pilot2.FirstName" placeholder="First Name" required value="@Model.Pilot2.FirstName" />
+    <input asp-for="Pilot2.SurName" placeholder="Surname" required value="@Model.Pilot2.SurName" />
+    <input asp-for="Pilot2.LastName" placeholder="Membership Number" required value="@Model.Pilot2.ID" />*@
+</form>
+    <section class="col-md-4" aria-labelledby="SubmitTitle">
+        <h1 id="title">Submit Details:</h1>
+        <p>
+
+        <p><a class="btn btn-outline-dark" href="https://localhost:44346/Home/Submitted">Submit Details &raquo;</a></p>
+    </section>
+    </form>
+    <p>
+        <datalist>hello world</datalist>
+    </p>
+
+
+
+
+    <h2 id="gettingStartedTitle">Need help?</h2>
+    <p>
+        Please refer to the 'get help' button, which goes through a guide through on how to enter your details.
+    </p>
+    <p><a class="btn btn-outline-dark" href="https://localhost:44346/Home/Contact">Get help &raquo;</a></p>
+    <h2 id="gettingStartedTitle">Home</h2>
+    <p>
+        Back to the homepage.
+    </p>
+    <p><a class="btn btn-outline-dark" href="https://localhost:44346/">Home &raquo;</a></p>
+</main>

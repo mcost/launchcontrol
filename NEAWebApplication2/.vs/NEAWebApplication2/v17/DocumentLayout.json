@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Christian Costantino\\source\\repos\\NEAWebApplication2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D31FAB08-7ABB-4DEA-BAA2-237F12ABF13F}|NEAWebApplication2\\NEAWebApplication2.csproj|c:\\users\\christian costantino\\source\\repos\\neawebapplication2\\neawebapplication2\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31FAB08-7ABB-4DEA-BAA2-237F12ABF13F}|NEAWebApplication2\\NEAWebApplication2.csproj|solutionrelative:neawebapplication2\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D31FAB08-7ABB-4DEA-BAA2-237F12ABF13F}|NEAWebApplication2\\NEAWebApplication2.csproj|c:\\users\\christian costantino\\source\\repos\\neawebapplication2\\neawebapplication2\\site.master.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31FAB08-7ABB-4DEA-BAA2-237F12ABF13F}|NEAWebApplication2\\NEAWebApplication2.csproj|solutionrelative:neawebapplication2\\site.master.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Site.Master.cs",
+              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\repos\\NEAWebApplication2\\NEAWebApplication2\\Site.Master.cs",
+              "RelativeDocumentMoniker": "NEAWebApplication2\\Site.Master.cs",
+              "ToolTip": "C:\\Users\\Christian Costantino\\source\\repos\\NEAWebApplication2\\NEAWebApplication2\\Site.Master.cs",
+              "RelativeToolTip": "NEAWebApplication2\\Site.Master.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T13:22:40.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Site.Master.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Christian Costantino\\source\\repos\\NEAWebApplication2\\NEAWebApplication2\\Site.Master.designer.cs",
+              "RelativeDocumentMoniker": "NEAWebApplication2\\Site.Master.designer.cs",
+              "ToolTip": "C:\\Users\\Christian Costantino\\source\\repos\\NEAWebApplication2\\NEAWebApplication2\\Site.Master.designer.cs",
+              "RelativeToolTip": "NEAWebApplication2\\Site.Master.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T13:22:37.167Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

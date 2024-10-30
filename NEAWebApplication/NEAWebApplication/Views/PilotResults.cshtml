@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "PilotResults";
+}
+
+<h2>PilotResults</h2>
+@model List<MEMBERCLUB>
+
+<h2>Pilot Search Results</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var pilot in Model)
+        {
+            <li>@pilot.Surname @pilot.FirstName (ID: @pilot.ID)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No pilots found.</p>
+}
