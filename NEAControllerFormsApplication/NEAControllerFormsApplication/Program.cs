@@ -14,6 +14,7 @@ namespace NEAControllerFormsApplication
         [STAThread]
         static void Main()
         {
+            // this is my comment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
