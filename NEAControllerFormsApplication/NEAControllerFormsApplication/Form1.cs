@@ -19,7 +19,25 @@ namespace NEAControllerFormsApplication
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form3 f3 = new Form3();
+            f3.Show();
+            this.Hide();
+            var form3 = new Form1();
+            form3.Closed += (s, args) => this.Close();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+            this.Hide();
+            var form2 = new Form1();
+            form2.Closed += (s, args) => this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
