@@ -13,6 +13,27 @@ namespace NEAFormsApplication
 {
     public partial class Form2 : Form
     {
+        public Form2()
+        {
+            InitializeComponent();
+            LoadNames();
+            LoadSurnames();
+            LoadMembershipID();
+            GetMembers();
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
+            comboBox5.Enabled = false;
+            comboBox6.Enabled = false;
+            comboBox8.Enabled = false;
+            comboBox9.Enabled = false;
+            comboBox1.TextChanged += comboBox1_TextChanged;
+            comboBox1.SelectedIndexChanged += new EventHandler(comboBox1_SelectedIndexChanged);
+            comboBox2.TextChanged += comboBox2_TextChanged;
+            comboBox4.TextChanged += comboBox4_TextChanged;
+            comboBox5.TextChanged += comboBox5_TextChanged;
+            comboBox7.TextChanged += comboBox7_TextChanged;
+            comboBox8.TextChanged += comboBox8_TextChanged;
+        }
         private string connectionString = "Server=DESKTOP-CMMVASL\\SQLEXPRESS;Database=LaunchControlSystem;Integrated Security=True;";
         private void LoadNames()
         {
@@ -84,27 +105,6 @@ namespace NEAFormsApplication
                 return $"{MembershipNumber} ({Name} {Surname}) ";
             }
         }
-        public Form2()
-        {
-            InitializeComponent();
-            LoadNames();
-            LoadSurnames();
-            LoadMembershipID();
-            GetMembers();
-            comboBox2.Enabled = false;
-            comboBox3.Enabled = false;
-            comboBox5.Enabled = false;
-            comboBox6.Enabled = false;
-            comboBox8.Enabled = false;
-            comboBox9.Enabled = false;
-            comboBox1.TextChanged += comboBox1_TextChanged;
-            comboBox1.SelectedIndexChanged += new EventHandler(comboBox1_SelectedIndexChanged);
-            comboBox2.TextChanged += comboBox2_TextChanged;
-            comboBox4.TextChanged += comboBox4_TextChanged;
-            comboBox5.TextChanged += comboBox5_TextChanged;
-            comboBox7.TextChanged += comboBox7_TextChanged;
-            comboBox8.TextChanged += comboBox8_TextChanged;
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -135,24 +135,25 @@ namespace NEAFormsApplication
 
         private void LoadMemberDetails(string name)
             {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT Surname, MemberTypeID, MembershipStart, MembershipEnd FROM MEMBERCLUB WHERE Name = @Name", connection);
-                command.Parameters.AddWithValue("@Name", name);
+                using (SqlConnection connection = new SqlConnection(connectionString))
 
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
                 {
-                    string surname = reader["Surname"].ToString();
-                    int memberTypeID = Convert.ToInt32(reader["MemberTypeID"]);
-                    DateTime membershipStart = Convert.ToDateTime(reader["MembershipStart"]);
-                    DateTime membershipEnd = Convert.ToDateTime(reader["MembershipEnd"]);
-                }
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("SELECT Surname, MemberTypeID, MembershipStart, MembershipEnd FROM MEMBERCLUB WHERE Name = @Name", connection);
+                    command.Parameters.AddWithValue("@Name", name);
 
-                reader.Close();
-            }
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        string surname = reader["Surname"].ToString();
+                        int memberTypeID = Convert.ToInt32(reader["MemberTypeID"]);
+                        DateTime membershipStart = Convert.ToDateTime(reader["MembershipStart"]);
+                        DateTime membershipEnd = Convert.ToDateTime(reader["MembershipEnd"]);
+                    }
+
+                    reader.Close();
+                }
         }
         private bool IsValidName(string Name)
         {
@@ -228,6 +229,37 @@ namespace NEAFormsApplication
             }
 
             return members;
+        }
+        public void SubmitForm2Data(string pilot1FirstName, string pilot1Surname, string pilot2FirstName, string pilot2Surname, int pilot1MembershipNumber, int pilot2MembershipNumber)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        SqlCommand command = new SqlCommand(
+                            "INSERT INTO MEMBERCLUB (FirstName, Surname, ID) VALUES (@FirstName, @Surname, @MembershipNumber)", 
+                            connection, transaction);
+
+                        command.Parameters.AddWithValue("@FirstName", pilot1FirstName);
+                        command.Parameters.AddWithValue("@Surname", pilot1Surname);
+                        command.Parameters.AddWithValue("@MembershipNumber", pilot1MembershipNumber);
+                        command.Parameters.AddWithValue("@MembershipNumber", pilot2MembershipNumber);
+                        command.ExecuteNonQuery();
+
+                        transaction.Commit();
+                        MessageBox.Show("Pilot details submitted successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error submitting pilot data: " + ex.Message);
+                    }
+                }
+            }
         }
         
         private void label6_Click(object sender, EventArgs e)
@@ -357,6 +389,11 @@ namespace NEAFormsApplication
             this.Hide();
             var form5 = new Form5();
             form5.Closed += (s, args) => this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

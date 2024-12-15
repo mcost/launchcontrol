@@ -39,10 +39,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(260, 52);
+            this.label1.Font = new System.Drawing.Font("Product Sans", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(282, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 34);
+            this.label1.Size = new System.Drawing.Size(234, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Details Submitted";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -50,22 +50,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.label2.Font = new System.Drawing.Font("Product Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(219, 114);
+            this.label2.Location = new System.Drawing.Point(178, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(345, 21);
+            this.label2.Size = new System.Drawing.Size(450, 26);
             this.label2.TabIndex = 3;
             this.label2.Text = "Please continue on with your flight preparations.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.label3.Font = new System.Drawing.Font("Product Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(57, 135);
+            this.label3.Location = new System.Drawing.Point(29, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(631, 21);
+            this.label3.Size = new System.Drawing.Size(746, 24);
             this.label3.TabIndex = 4;
             this.label3.Text = "If an error has been made in submitting details, please contact the Controller im" +
     "mediately.";
@@ -74,19 +74,19 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(350, 200);
+            this.label19.Font = new System.Drawing.Font("Product Sans", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(365, 200);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 26);
+            this.label19.Size = new System.Drawing.Size(67, 25);
             this.label19.TabIndex = 33;
             this.label19.Text = "Home";
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(335, 229);
+            this.button6.Font = new System.Drawing.Font("Product Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(320, 228);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 40);
+            this.button6.Size = new System.Drawing.Size(159, 56);
             this.button6.TabIndex = 34;
             this.button6.Text = "Back to the homepage";
             this.button6.UseVisualStyleBackColor = true;
@@ -95,10 +95,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Product Sans", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(610, 411);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(178, 13);
+            this.label4.Size = new System.Drawing.Size(180, 14);
             this.label4.TabIndex = 35;
             this.label4.Text = "Launch Control System (LCS) - 2024";
             // 

@@ -121,6 +121,41 @@ namespace NEAFormsApplication
             LoadLaunchTypes();
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
+        private void SubmitForm6Data()
+        {
+            string gliderType = comboBox1.Text;
+            string gliderREG = comboBox2.Text;
+            string launchType = comboBox3.Text;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        SqlCommand flightCommand = new SqlCommand(
+                            "INSERT INTO FLIGHT (GliderType, GliderREG, LaunchType) VALUES (@GliderType, @GliderREG, @LaunchType)",
+                            connection, transaction);
+
+                        flightCommand.Parameters.AddWithValue("@GliderType", gliderType);
+                        flightCommand.Parameters.AddWithValue("@GliderREG", gliderREG);
+                        flightCommand.Parameters.AddWithValue("@LaunchType", launchType);
+
+                        flightCommand.ExecuteNonQuery();
+
+                        transaction.Commit();
+                        MessageBox.Show("Flight data submitted successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error submitting flight data: " + ex.Message);
+                    }
+                }
+            }
+        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -159,6 +194,12 @@ namespace NEAFormsApplication
             this.Hide();
             var form3 = new Form6();
             form3.Closed += (s, args) => this.Close();
+
+            SubmitForm6Data();
+
+            Form2 form2 = new Form2();
+            form2.Show();
+            this.Hide();
         }
     }
 }
